@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/studentLib_MainPage/studentLib_MainPage_css.css">
+    <link rel="stylesheet" href="/studentLib_MainPage/mediaQ.css">
+    <title>Student Library</title>
+</head>
+<body>
+    <div class="container">
+        <!-- navbar div -->
+        <div class="container_header">
+            <nav class="navbar bg-dark navbar_expand">
+                <a href="#" class="h1">My Library</a>
+                <div class="navbar_div">
+                    <ul>
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                    </ul>
+                    <form action="#" id="searchForm">
+                        <input  id="searchTxt" onkeyup="search_Txt()" type="search" placeholder="Search">
+                        <!-- searchBtn -->
+                        <button onmouseenter="searchBtn0()" onmouseleave="searchBtn1()" onmousedown="searchBtn2()" onmouseup="searchBtn3()"
+                         id="searchBtn" class="cursor_pointer" type="submit">Search</button>
+                    </form>
+                </div>
+                <!-- logoutBtn -->
+                <button onmouseenter="logoutBtn0()" onmouseleave="logoutBtn1()" onmousedown="logoutBtn2()" onmouseup="logoutBtn3()"
+                 id="logoutBtn" class="cursor_pointer" type="submit">
+                    Logout</button>
+                    <script>
+                        document.getElementById('logoutBtn').onclick = function(){
+                            location.href = "/studentLib_LoginPage/studentLibLoginPage.html";
+                        }
+                    </script>
+            </nav>
+            <div id="message" style="background:rgba(255, 255, 0, 0.288); z-index:5; position:absolute;"></div>
+        </div>
+        <!-- navbar div closing-->
+
+        <!-- container body -->
+        <div class="container_body">
+            <h1>My Library</h1>
+            <hr id="hr">
+
+            <!-- books options buttons visibility:hidden -->
+            <div class="form-group row btns_Margin_left">
+                    <div class="btnMargin">
+                        <button class="btn btn-primary" type="submit" onclick="availableBooksBtn()">Available Books</button>
+                    </div>
+                    <div class="btnMargin">
+                        <button class="btn btn-primary" type="submit" onclick="borrowBook()" id="borrowBtn">Borrow Book</button>
+                    </div>
+                    <div class="btnMargin">
+                        <button class="btn btn-primary" type="submit" onclick="returnBook()">Return Book</button>
+                    </div>
+                    <div class="btnMargin">
+                        <button class="btn btn-primary" type="submit" onclick="addBook()">Add Book</button>
+                    </div>
+                    <script>
+
+                    </script>
+            </div>
+
+            <form id="libraryForm">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="bookName">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="bookName" class="form-control" placeholder="Book Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="Author">Author</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="author" class="form-control" placeholder="Author">
+                    </div>
+                </div>
+                <fieldset class="form-group">
+                    <div class=row>
+                        <legend class="col-form-label col-sm-2 pt-0">Type</legend>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input type="radio" id="fiction" class="form-check-input" name="type" value="fiction" checked="">
+                            <label for="fiction" class="form-check-label">Fiction</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="programming" class="form-check-input" name="type" value="programming">
+                            <label for="programming" class="form-check-label" >Computer Programming</label>
+                        </div>
+                        <div class="form-check disabled">
+                            <input type="radio" id="cooking" class="form-check-input" name="type" value="cooking">
+                            <label for="cooking" class="form-check-label" >Cooking</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="others" class="form-check-input" name="type" value="Others">
+                            <label for="others" class="form-check-label" >Others</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- from here give functionalities to borrow and return btns. -->  
+                <div class="submitBtn">
+                    <button type="submit" id="AddBtn">Add</button>
+                </div>
+            </form>
+            <script>
+            </script>
+            <div id="table">
+                <h1>Books Available</h1>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Delete</th>
+                            <!-- script of delete button -->
+                            <script>
+                                
+                                // let d = document.getElementById('deleteO');
+                                // function deleteO(){
+                                //     confirm(`Are You Sure \nYou want to delete selected data?`);
+                                // }
+                            </script>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr> 
+                            <td id="bName"      class="sTxt"></td> 
+                            <td id="bAuthor"    ></td>
+                            <td id="bType"      ></td>
+                            <td id="otherOption"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- container body closing -->
+
+        <!-- footer -->
+        <!-- <div class="container_footer">Footer</div> -->
+        <!-- footer closing -->
+    </div>
+    <script src="/studentLib_MainPage/studentLib_MPageJS.js"></script>
+    <script src="/studentLib_MainPage/studentLib_MainPageBtns_js.js"></script>
+    <!-- <script src="/index6.js"></script> -->
+    <!-- <script src="/studentLib1/studentLib_MainPage/rough.js"></script> -->
+</body>
+</html>
